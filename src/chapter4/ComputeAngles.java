@@ -8,7 +8,7 @@ public class ComputeAngles {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
 		//Prompt User to enter three points
-		System.out.println("Enter Three Points");
+		System.out.println("Enter the coordinates of three points separated by spaces like x1 y1 x2 y2 x3 y3: ");
 		double x1 = input.nextDouble();
 		double y1 = input.nextDouble();
 		double x2 = input.nextDouble();
