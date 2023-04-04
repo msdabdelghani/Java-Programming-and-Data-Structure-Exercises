@@ -1,6 +1,6 @@
 package chapter5;
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
 public class Palindrome {
  
@@ -11,14 +11,12 @@ public class Palindrome {
 		String word = input.nextLine();
 		int start = 0;
 		int end = word.length()-1;
-		System.out.println(word);
 		while(start <= end) {
 			if(word.charAt(start) != word.charAt(end)) 
 				break;
 			start++;
 			end--;
 		}
-		System.out.println("out");
 		if(start <= end) 
 			System.out.println(word + " is not a palindrome");
 		else
