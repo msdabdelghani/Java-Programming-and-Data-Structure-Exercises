@@ -11,27 +11,27 @@ public class SubstractionQuizzLoop {
 		long startTime = System.currentTimeMillis();
 		System.out.println("Welcome to the Math Quiz!");
         System.out.println("-------------------------\n");
-		while(i<5) {
-			int num1 = (int)(Math.random()*10);
-			int num2 = (int)(Math.random()*10);
+		while(i<10) {
+			int num1 = (int)(Math.random()*15);
+			int num2 = (int)(Math.random()*15);
 			if(num2 > num1) {
 				int temp = num2;
 				num2 = num1;
 				num1 = temp;
 			}
-			System.out.print("What is " + num1 + " - " + num2 + " : ");
+			System.out.print("What is " + num1 + " + " + num2 + " : ");
 			int attempt = input.nextInt();
-			if(attempt == num1 - num2) {
+			if(attempt == num1 + num2) {
 				System.out.println("You are correct");
 				correctCount++;
 				result = "correct";
 			}else {
 				System.out.println("Your answer is wrong.");
-				System.out.println(num1 + " - " + num2 + " Should be " + (num1 - num2));
+				System.out.println(num1 + " + " + num2 + " Should be " + (num1 + num2));
 				result = "wrong";
 			}
 			i++;
-			output += "\n   " + num1 + " - " + num2 + " = " + (num1 - num2) + " " + result;
+			output += "\n   " + num1 + " + " + num2 + " = " + (num1 + num2) + " " + result;
 		}
 		long endTime = System.currentTimeMillis();
 		
