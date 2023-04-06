@@ -9,7 +9,7 @@ public class SubstractionQuizzLoop {
 		int i=0, correctCount = 0;
 		String output = "", result = "";
 		long startTime = System.currentTimeMillis();
-		System.out.println("Welcome to the Math Quiz!");
+		System.out.println("Welcome to the Math Addition Quiz!");
         System.out.println("-------------------------\n");
 		while(i<10) {
 			int num1 = (int)(Math.random()*15);
