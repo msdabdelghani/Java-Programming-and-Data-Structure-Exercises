@@ -12,7 +12,7 @@ public class FinancialApplication {
 			if(i <= 10) {
 				tuitionIncrease = tuition * 5 / 100;
 				System.out.println("Tuition increase for the year " + i +" = 5% of "+ tuition + " = " + tuitionIncrease);
-				System.out.println("Tuition for the year " + i +" = " + tuition + " + " + " tuitionIncrease " + " = " + tuition + tuitionIncrease );
+				System.out.println("Tuition for the year " + i +" = " + tuition + " + " + " tuitionIncrease " + " = " + (tuition + tuitionIncrease) );
 			}else {
 				tuitionCost += tuition; 
 			}
