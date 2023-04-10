@@ -48,7 +48,7 @@ public class ScissorRockPaper {
 		else 
 			System.out.println("Congratulations, you won");
 			
-		}
 	}
-
 }
+
+
