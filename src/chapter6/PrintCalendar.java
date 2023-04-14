@@ -48,7 +48,7 @@ public class PrintCalendar {
 	}
 	
 	public static boolean isLeapYear(int year) {
-		return true;		// A dummy value
+		return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);		
 	}
 
 }
