@@ -18,7 +18,7 @@ public class PrintCalendar {
 		// Print calendar for the month of the year
 		printMonth(year, month);
 		
-		System.out.println("The total number of days is " + getTotalNumberOfDays(year, month));
+		System.out.println("The start of day is " + getStartDay(year, month));
 		
 	}
 	
@@ -38,7 +38,8 @@ public class PrintCalendar {
 	}
 	
 	public static int getStartDay(int year, int month) {
-		return 1;			// A dummy value
+		final int START_DAY_FOR_JAN_1_1800 = 3;
+		return (START_DAY_FOR_JAN_1_1800 + getTotalNumberOfDays(year, month)) % 7;		
 	}
 	
 	public static int getTotalNumberOfDays(int year, int month) {
@@ -53,7 +54,7 @@ public class PrintCalendar {
 		for(int j=1; j < month; j++) {
 			totalNumberOfDays += getNumberOfDaysInMonth(year, j);
 		}
-		return totalNumberOfDays;// A dummy value
+		return totalNumberOfDays;
 	}
 	
 	public static int getNumberOfDaysInMonth(int year, int month) {
