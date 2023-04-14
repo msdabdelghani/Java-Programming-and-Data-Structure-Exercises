@@ -18,7 +18,7 @@ public class PrintCalendar {
 		// Print calendar for the month of the year
 		printMonth(year, month);
 		
-		System.out.println("The number of days is " + getNumberOfDaysInMonth(year, month));
+		System.out.println("The total number of days is " + getTotalNumberOfDays(year, month));
 		
 	}
 	
@@ -42,7 +42,18 @@ public class PrintCalendar {
 	}
 	
 	public static int getTotalNumberOfDays(int year, int month) {
-		return 100000;		// A dummy value
+		int totalNumberOfDays = 0;
+		for(int i=1800; i < year; i++) {
+			if(isLeapYear(i)) {
+				totalNumberOfDays += 366;
+			}else {
+				totalNumberOfDays += 365;
+			}
+		}
+		for(int j=1; j < month; j++) {
+			totalNumberOfDays += getNumberOfDaysInMonth(year, j);
+		}
+		return totalNumberOfDays;// A dummy value
 	}
 	
 	public static int getNumberOfDaysInMonth(int year, int month) {
