@@ -18,7 +18,7 @@ public class PrintCalendar {
 		// Print calendar for the month of the year
 		printMonth(year, month);
 		
-		System.out.println("The english name of " + month + " is " + getMonthName(month));
+		printMonthBody(year, month);
 		
 	}
 	
@@ -30,6 +30,19 @@ public class PrintCalendar {
 	}
 	
 	public static void printMonthBody(int year, int month) {
+		// Get start day of the week for the first date in the month
+		int startDay = getStartDay(year, month);
+		// Get number of days in the month
+		int numberOfDaysInMonth = getNumberOfDaysInMonth(year, month);
+		// Pad space before the first day of the month
+		int i = 0;
+		for (i = 0; i < startDay; i++)
+			System.out.print("    ");
+		for (i = 1; i <= numberOfDaysInMonth; i++) {
+			System.out.printf("%4d", i);
+			if ((i + startDay) % 7 == 0)
+				System.out.println();
+		}
 		
 	}
 	
