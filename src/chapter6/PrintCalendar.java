@@ -18,15 +18,18 @@ public class PrintCalendar {
 		// Print calendar for the month of the year
 		printMonth(year, month);
 		
-		printMonthBody(year, month);
-		
 	}
 	
 	public static void printMonth(int year, int month) {
-		System.out.println(month + " " + year);
+		printMonthTitle(year, month);
+		
+		printMonthBody(year, month);
 	}
 	
 	public static void printMonthTitle(int year, int month) {
+		System.out.println("    " + getMonthName(month) + " " + year);
+		System.out.println("------------------------------------");
+		System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
 	}
 	
 	public static void printMonthBody(int year, int month) {
