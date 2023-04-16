@@ -1,6 +1,6 @@
 package chapter6;
 
-public class sumDigits {
+public class sumOfDigits {
 
 	public static void main(String[] args) {
 		System.out.println("the sum of digits of : 234 is " + sumDigits(234));
