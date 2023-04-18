@@ -1,23 +1,26 @@
 package chapter6;
 
+import java.util.Scanner;
+
 public class ApproximateSQRT {
-	public static void main(String[] args) {
-		
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a postive number : ");
+		long number = input.nextLong();
+		System.out.println("The square root is " + sqrt(number));
 	}
 	
-	public static double sqrt(long n) {
-		long lastGuess = (long)(Math.random()* (n+1));
-		long nextGuess;
-		while(true) {
-			nextGuess = (lastGuess + n / lastGuess) / 2;
-			if(Math.abs(nextGuess - lastGuess) <= 0.0001) {
-				return nextGuess;
-			}else {
-				nextGuess = lastGuess;
-				if(Math.abs(nextGuess - lastGuess) <= 0.0001) {
-					return nextGuess;
-				}
-			}
-		}
-	}
+	// Find the square root of the value
+	  public static double sqrt(double num) {
+	    double nextGuess = 1.0;
+	    double lastGuess;
+
+	    do {
+	      lastGuess = nextGuess;
+	      nextGuess = (lastGuess + (num / lastGuess)) * 0.5;
+	    } 
+	    while (Math.abs(nextGuess - lastGuess) >= 0.00001);
+
+	    return nextGuess;
+	  }
 }
