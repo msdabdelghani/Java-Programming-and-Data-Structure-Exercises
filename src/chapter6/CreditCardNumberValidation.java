@@ -4,7 +4,7 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		System.out.println("123456, 4 : " + getPrefix(123456,4));
 	}
 	
 	/** Return true if the card number is valid */
@@ -35,7 +35,11 @@ public class CreditCardNumberValidation {
 	/** Return the first k number of digits from number. If the
 	* number of digits in number is less than k, return number. */
 	public static long getPrefix(long number, int k) {
-		return number;
+		String str = number + "";
+		if(str.length() < k) 
+			return number;
+		else 
+			return Long.parseLong(str.substring(0, k));
 	}
 
 }
