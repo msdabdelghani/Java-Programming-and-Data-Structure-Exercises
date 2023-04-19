@@ -4,7 +4,7 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("123456, 4 : " + getPrefix(123456,4));
+		System.out.println("123456 : " + getSize(123456));
 	}
 	
 	/** Return true if the card number is valid */
@@ -30,7 +30,8 @@ public class CreditCardNumberValidation {
 	}
 	/** Return the number of digits in d */
 	public static int getSize(long d) {
-		return 1;
+		String str = d + "";
+		return str.length();
 	}
 	/** Return the first k number of digits from number. If the
 	* number of digits in number is less than k, return number. */
