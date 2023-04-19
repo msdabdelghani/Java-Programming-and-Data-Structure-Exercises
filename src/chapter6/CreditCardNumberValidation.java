@@ -4,7 +4,7 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("123456 : " + getSize(123456));
+		System.out.println("123456 : " + prefixMatched(123456, 12345));
 	}
 	
 	/** Return true if the card number is valid */
@@ -26,7 +26,9 @@ public class CreditCardNumberValidation {
 	}
 	/** Return true if the number d is a prefix for number */
 	public static boolean prefixMatched(long number, int d) {
-		return true;
+		String strN = number + "";
+		String strD = d + "";
+		return strN.startsWith(strD);
 	}
 	/** Return the number of digits in d */
 	public static int getSize(long d) {
