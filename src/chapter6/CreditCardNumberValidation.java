@@ -18,7 +18,15 @@ public class CreditCardNumberValidation {
 	/** Return this number if it is a single digit, otherwise,
 	 return the sum of the two digits */
 	public static int getDigit(int number) {
-		return number;
+		int sum = 0;
+		if(getSize(number) == 1) {
+			return number;
+		}else {
+			sum = number % 10;
+			number = number / 10;
+			sum += number;
+			return sum;
+		}
 	}
 	/** Return sum of odd-place digits in number */
 	public static int sumOfOddPlace(long number) {
