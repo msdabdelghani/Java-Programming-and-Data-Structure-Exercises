@@ -4,11 +4,19 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("4388576018402626 : " + sumOfDoubleEvenPlace(4388576018402626L));
+		System.out.println(isValid(4388576018410707L) ? "Valid Card" : "Invalid Card");
 	}
 	
 	/** Return true if the card number is valid */
 	public static boolean isValid(long number) {
+		
+		if(getSize(number) < 13 || getSize(number) > 16)
+			return false;
+		if(!(prefixMatched(number,4) || prefixMatched(number,5) || prefixMatched(number,37) || prefixMatched(number,6))) 
+			return false;
+		int sum = sumOfDoubleEvenPlace(number) + sumOfOddPlace(number);
+		if(sum % 10 != 0) 
+			return false;
 		return true;
 	}
 	/** Get the result from Step 2 */
