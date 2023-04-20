@@ -4,7 +4,7 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("123456 : " + prefixMatched(123456, 12345));
+		System.out.println("4388576018402626 : " + sumOfOddPlace(4388576018402626L));
 	}
 	
 	/** Return true if the card number is valid */
@@ -22,7 +22,12 @@ public class CreditCardNumberValidation {
 	}
 	/** Return sum of odd-place digits in number */
 	public static int sumOfOddPlace(long number) {
-		return 1;
+		int sum = 0;
+		String str = number + "";
+		for(int i = getSize(number) - 1; i >= 0; i = i -2) {
+			sum += str.charAt(i) - '0';
+		}
+		return sum;
 	}
 	/** Return true if the number d is a prefix for number */
 	public static boolean prefixMatched(long number, int d) {
