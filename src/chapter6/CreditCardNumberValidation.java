@@ -1,10 +1,15 @@
 package chapter6;
 
+import java.util.Scanner;
+
 public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isValid(4388576018410707L) ? "Valid Card" : "Invalid Card");
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a credit card number as a long integer : ");
+		long creditCardNumber = input.nextLong();
+		System.out.println(isValid(creditCardNumber) ? creditCardNumber + " is valid" : creditCardNumber + " is invalid"  );
 	}
 	
 	/** Return true if the card number is valid */
