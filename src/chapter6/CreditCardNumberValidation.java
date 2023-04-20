@@ -4,7 +4,7 @@ public class CreditCardNumberValidation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("4388576018402626 : " + sumOfOddPlace(4388576018402626L));
+		System.out.println("4388576018402626 : " + sumOfDoubleEvenPlace(4388576018402626L));
 	}
 	
 	/** Return true if the card number is valid */
@@ -13,7 +13,12 @@ public class CreditCardNumberValidation {
 	}
 	/** Get the result from Step 2 */
 	public static int sumOfDoubleEvenPlace(long number) {
-		return 1;
+		int sum = 0;
+		String str = number + "";
+		for(int i = getSize(number) - 2; i >= 0; i = i -2) {
+			sum += getDigit((str.charAt(i) - '0') * 2);
+		}
+		return sum;
 	}
 	/** Return this number if it is a single digit, otherwise,
 	 return the sum of the two digits */
