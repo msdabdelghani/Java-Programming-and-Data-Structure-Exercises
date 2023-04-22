@@ -2,26 +2,25 @@ package chapter6;
 
 public class CurrentDateAndTime {
 	public static void main(String[] args) {
-		System.out.println(currentHour() + ":" + currentMinute() + ":" + currentSecond() + " " + totalDays());
+		System.out.println(currentHour() + ":" + currentMinute() + ":" + currentSecond() + " " + currentYear());
 	}
 	
 	public static int currentYear() {
-		long days = 0;
 		int year = 1970;
-		while(days < totalDays()) {
+		int daysOfYear;
+		long totalDays = totalDays();
+		while(totalDays > 365) {
 			if(isLeapYear(year)) 
-				days += 366;
+				daysOfYear = 366;
 			else
-				days += 365;
+				daysOfYear = 365;
 			year++;
+			totalDays = totalDays - daysOfYear;
 		}
 		return year;
 	}
 	
 	public static long totalDays() {
-		//return totalSeconds() / (24 * 60 * 60);
-		System.out.println(totalSeconds() / (24 * 60 * 60));
-		System.out.println((totalSeconds() / (24 * 60 * 60)) % 365);
 		return totalSeconds() / (24 * 60 * 60);
 	}
 	
