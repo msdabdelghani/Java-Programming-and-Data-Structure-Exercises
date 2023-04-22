@@ -7,15 +7,10 @@ public class CurrentDateAndTime {
 	
 	public static int currentYear() {
 		int year = 1970;
-		int daysOfYear;
 		long totalDays = totalDays();
 		while(totalDays > 365) {
-			if(isLeapYear(year)) 
-				daysOfYear = 366;
-			else
-				daysOfYear = 365;
+			totalDays -= isLeapYear(year) ? 366 : 365;
 			year++;
-			totalDays = totalDays - daysOfYear;
 		}
 		return year;
 	}
