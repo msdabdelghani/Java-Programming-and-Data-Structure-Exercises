@@ -1,8 +1,13 @@
 package chapter6;
 
+import java.util.Scanner;
+
 public class CurrentDateAndTime {
 	public static void main(String[] args) {
-		System.out.println("Current day and time is : " + currentDayAndMonth() + ", " + currentYear() + " " + currentHourGMT1() + ":" + currentMinute() + ":" + currentSecond() );
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the time you want related to GMT (e.g: 1 for GMT+1, -1 for GMT-1) : ");
+		int timeIn = input.nextInt();
+		System.out.println("Current day and time is : " + currentDayAndMonth() + ", " + currentYear() + " " + currentHour(timeIn) + ":" + currentMinute() + ":" + currentSecond() );
 	}
 	
 	public static String currentDayAndMonth() {
@@ -52,9 +57,9 @@ public class CurrentDateAndTime {
 	}
 	
 	
-	public static String currentHourGMT1() {
+	public static String currentHour(int timeIn) {
 		long totalHour = totalSeconds() / (60 * 60);
-		return leadingZero((int)(totalHour % 24 + 1));
+		return leadingZero((int)(totalHour % 24 + timeIn));
 	}
 	
 	public static String currentMinute() {
