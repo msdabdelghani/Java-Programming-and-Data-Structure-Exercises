@@ -2,7 +2,7 @@ package chapter6;
 
 public class CurrentDateAndTime {
 	public static void main(String[] args) {
-		System.out.println(currentHour() + ":" + currentMinute() + ":" + currentSecond() + " " + currentYear()+ " " + currentDayAndMonth());
+		System.out.println("Current day and time is : " + currentDayAndMonth() + ", " + currentYear() + " " + currentHourGMT1() + ":" + currentMinute() + ":" + currentSecond() );
 	}
 	
 	public static String currentDayAndMonth() {
@@ -52,9 +52,9 @@ public class CurrentDateAndTime {
 	}
 	
 	
-	public static String currentHour() {
+	public static String currentHourGMT1() {
 		long totalHour = totalSeconds() / (60 * 60);
-		return leadingZero((int)(totalHour % 24));
+		return leadingZero((int)(totalHour % 24 + 1));
 	}
 	
 	public static String currentMinute() {
