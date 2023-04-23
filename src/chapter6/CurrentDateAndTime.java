@@ -2,17 +2,19 @@ package chapter6;
 
 public class CurrentDateAndTime {
 	public static void main(String[] args) {
-		System.out.println(currentHour() + ":" + currentMinute() + ":" + currentSecond() + " " + currentYear()+ " " + currentDay());
+		System.out.println(currentHour() + ":" + currentMinute() + ":" + currentSecond() + " " + currentYear()+ " " + currentDayAndMonth());
 	}
 	
-	public static int currentDay() {
+	public static String currentDayAndMonth() {
 		int year = 1970;
+		int month = 1;
+		String str = "";
 		long remainingDays = totalDays();
 		while(remainingDays > 365) {
 			remainingDays -= isLeapYear(year) ? 366 : 365;
 			year++;
 		}
-		for(int month = 1; month <= 12; month++ ) {
+		for(; month <= 12; month++ ) {
 			int daysOfMonth = 0;
 			switch(month) {
 			case 1: case 3: case 5: case 7: case 8: case 10: case 12 : 
@@ -29,17 +31,20 @@ public class CurrentDateAndTime {
 			else remainingDays -= daysOfMonth;
 		}
 		int currentDay = (int)remainingDays + 1;
-		return currentDay;
+		switch(month) {
+		case 1: str="January"; break; case 2: str="February"; break; case 3: str="March"; break; case 4: str="April"; break; case 5: str="May"; break; case 6: str="June"; break; case 7: str="July"; break; case 8: str="August"; break; case 9: str="September"; break; case 10: str="October"; break; case 11: str="November"; break; case 12: str="December"; break; 
+		}
+		return str + " " + currentDay;
 	}
 	
-	public static int currentYear() {
+	public static String currentYear() {
 		int year = 1970;
 		long totalDays = totalDays();
 		while(totalDays > 365) {
 			totalDays -= isLeapYear(year) ? 366 : 365;
 			year++;
 		}
-		return year;
+		return year + "";
 	}
 	
 	public static long totalDays() {
@@ -47,18 +52,18 @@ public class CurrentDateAndTime {
 	}
 	
 	
-	public static int currentHour() {
+	public static String currentHour() {
 		long totalHour = totalSeconds() / (60 * 60);
-		return (int)(totalHour % 24);
+		return leadingZero((int)(totalHour % 24));
 	}
 	
-	public static int currentMinute() {
+	public static String currentMinute() {
 		long totalMinute = totalSeconds() / 60;
-		return (int)(totalMinute % 60);
+		return leadingZero((int)(totalMinute % 60));
 	}
 	
-	public static int currentSecond() {
-		return (int)(totalSeconds() % 60);
+	public static String currentSecond() {
+		return leadingZero((int)(totalSeconds() % 60));
 	}
 	
 	public static long totalSeconds() {
