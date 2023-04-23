@@ -47,18 +47,18 @@ public class CurrentDateAndTime {
 	}
 	
 	
-	public static long currentHour() {
+	public static int currentHour() {
 		long totalHour = totalSeconds() / (60 * 60);
-		return totalHour % 24;
+		return (int)(totalHour % 24);
 	}
 	
-	public static long currentMinute() {
+	public static int currentMinute() {
 		long totalMinute = totalSeconds() / 60;
-		return totalMinute % 60;
+		return (int)(totalMinute % 60);
 	}
 	
-	public static long currentSecond() {
-		return totalSeconds() % 60;
+	public static int currentSecond() {
+		return (int)(totalSeconds() % 60);
 	}
 	
 	public static long totalSeconds() {
@@ -67,5 +67,13 @@ public class CurrentDateAndTime {
 	
 	public static boolean isLeapYear(int year) {
 		return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);		
+	}
+	
+	public static String leadingZero(int number) {
+		String str = number + "";
+		if(str.length() > 1) 
+			return str;
+		else
+			return "0" + str;
 	}
 }
