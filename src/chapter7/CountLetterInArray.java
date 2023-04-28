@@ -8,20 +8,18 @@ public class CountLetterInArray {
 		char[] chars = new char[100];
 		int[] counts = new int[26];
 		char letter = 'a';
-		int count = 0;
-		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < chars.length; i++) {
 			chars[i] = chapter6.RandomCharacter.getRandomLowerCaseLetter();
 		}
-		for(int i = 0; i < 26; i++) {
-			for(char charVar : chars) {
-				if(charVar == letter) count++;
-			}
-			counts[i] = count;
-			System.out.println("The number of " + letter + "'s is " + counts[i] );
-			letter = (char)(letter + 1);
-			count = 0;
+		for(int i = 0; i < chars.length; i++) {
+				counts[chars[i] - 'a']++;
 		}
-		
+		for(int count: counts) {
+			System.out.println("The number of " + letter + "'s is " + count );
+			letter = (char)(letter + 1);
+		}
 	}
-
+		
 }
+
+
